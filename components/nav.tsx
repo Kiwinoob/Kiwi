@@ -4,14 +4,26 @@ import { motion } from "framer-motion"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Download } from "lucide-react"
+import type React from "react" // Added import for React
 
 const navItems = [
   { href: "/", label: "About" },
-  { href: "/projects", label: "Projects" },
+  { href: "#projects", label: "Projects" },
 ]
 
 export function Nav() {
   const pathname = usePathname()
+
+  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    // Check if the clicked item is "Projects"
+    if (e.currentTarget.getAttribute("href") === "#projects") {
+      e.preventDefault()
+      const projectsSection = document.getElementById("projects")
+      if (projectsSection) {
+        projectsSection.scrollIntoView({ behavior: "smooth" })
+      }
+    }
+  }
 
   return (
     <nav className="fixed top-0 left-0 right-0 h-14 sm:h-16 bg-cyber-dark/80 backdrop-blur-sm z-20">
@@ -25,7 +37,7 @@ export function Nav() {
               {navItems.map(({ href, label }) => {
                 const isActive = pathname === href
                 return (
-                  <Link key={href} href={href} className="relative group" aria-label={label}>
+                  <Link key={href} href={href} className="relative group" aria-label={label} onClick={handleScroll}>
                     <motion.div
                       className="absolute -bottom-2 sm:-bottom-3 left-0 w-full h-0.5 bg-cyber-light rounded-full"
                       initial={{ opacity: 0, scaleX: 0 }}
