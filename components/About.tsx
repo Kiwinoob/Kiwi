@@ -8,7 +8,7 @@ export default function About() {
   return (
     <section className="min-h-screen flex items-center px-4 sm:px-8 xl:px-32 2xl:px-64 relative overflow-hidden">
       <div className="absolute top-0 right-0 w-full md:w-2/3 lg:w-1/2 h-full z-0">
-        {/* <GlowingSphere /> */}
+        <GlowingSphere />
       </div>
       <motion.div
         className="max-w-7xl mx-auto w-full relative z-10"
@@ -41,7 +41,7 @@ export default function About() {
           transition={{ duration: 0.5, delay: 0.6 }}
         >
           <a
-            href="https://github.com/yourusername"
+            href="https://github.com/Kiwinoob"
             target="_blank"
             rel="noopener noreferrer"
             className="text-white/80 hover:text-cyber-light transition-colors bg-cyber-dark/50 p-2 rounded-full backdrop-blur-sm"
@@ -50,7 +50,7 @@ export default function About() {
             <Github className="w-6 h-6 sm:w-8 sm:h-8" />
           </a>
           <a
-            href="https://linkedin.com/in/yourusername"
+            href="https://linkedin.com/in/lam-kee-hui-4357391aa"
             target="_blank"
             rel="noopener noreferrer"
             className="text-white/80 hover:text-cyber-light transition-colors bg-cyber-dark/50 p-2 rounded-full backdrop-blur-sm"
@@ -59,7 +59,7 @@ export default function About() {
             <Linkedin className="w-6 h-6 sm:w-8 sm:h-8" />
           </a>
           <a
-            href="mailto:your.email@example.com"
+            href="mailto:kiwi1@live.com.sg"
             className="text-white/80 hover:text-cyber-light transition-colors bg-cyber-dark/50 p-2 rounded-full backdrop-blur-sm"
             aria-label="Email Contact"
           >

@@ -13,7 +13,7 @@ model Project {
   description  String
   image        String
   technologies String[]
-  github       String
+  link         String
   status       String
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
