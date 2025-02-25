@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://github.com/yourusername">
+  <a href="https://github.com/kiwinoob">
     <img alt="Kiwi Logo" src="/public/logo.png" width="60" />
   </a>
 </p>
@@ -7,7 +7,7 @@
   Kiwi Portfolio
 </h1>
 
-![Portfolio site preview](./public/preview.png)
+![Portfolio site preview](./public/portfilo.png)
 
 A modern portfolio website built with [Next.js](https://nextjs.org/) as the frontend framework, styled with [Tailwind CSS](https://tailwindcss.com/), and powered by [Prisma](https://www.prisma.io/) with PostgreSQL as the database. The project features a cyberpunk-inspired design with smooth animations and a fully responsive layout.
 

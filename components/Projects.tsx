@@ -57,7 +57,13 @@ export default function Projects() {
               transition={{ duration: 0.5, delay: index * 0.1 + 0.4 }}
               className="group"
             >
-              <div className="bg-[#1a1a1a] rounded-lg overflow-hidden border border-white/5 transition-all duration-300 hover:shadow-lg hover:shadow-cyber-light/20">
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block bg-[#1a1a1a] rounded-lg overflow-hidden border border-white/5 transition-all duration-300 hover:shadow-lg hover:shadow-cyber-light/20"
+                aria-label={`View ${project.title} on GitHub`}
+              >
                 <div className="aspect-video relative overflow-hidden bg-black">
                   <img
                     src={project.image || "/placeholder.svg"}
@@ -70,6 +76,9 @@ export default function Projects() {
                     <h3 className="text-lg sm:text-xl font-semibold text-white group-hover:text-cyber-light transition-colors">
                       {project.title}
                     </h3>
+                    <span className="px-2 py-1 text-xs rounded-full bg-cyber-light/10 text-cyber-light border border-cyber-light/30">
+                      {project.status}
+                    </span>
                   </div>
                   <p className="text-white/60 text-sm mb-4 line-clamp-3">
                     {project.description}
@@ -85,7 +94,7 @@ export default function Projects() {
                     ))}
                   </div>
                 </div>
-              </div>
+              </a>
             </motion.div>
           ))}
         </div>
