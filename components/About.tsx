@@ -44,7 +44,7 @@ export default function About() {
           transition={{ duration: 0.5, delay: 0.6 }}
         >
           <a
-            href="https://github.com/yourusername"
+            href="https://github.com/kiwinoob"
             target="_blank"
             rel="noopener noreferrer"
             className="text-white/80 hover:text-cyber-light transition-colors bg-cyber-dark/50 p-2 rounded-full backdrop-blur-sm"
@@ -53,7 +53,7 @@ export default function About() {
             <Github className="w-6 h-6 sm:w-8 sm:h-8" />
           </a>
           <a
-            href="https://linkedin.com/in/yourusername"
+            href="https://www.linkedin.com/in/kee-hui-lam/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-white/80 hover:text-cyber-light transition-colors bg-cyber-dark/50 p-2 rounded-full backdrop-blur-sm"
@@ -62,7 +62,7 @@ export default function About() {
             <Linkedin className="w-6 h-6 sm:w-8 sm:h-8" />
           </a>
           <a
-            href="mailto:your.email@example.com"
+            href="mailto:kiwi1@live.com.sg"
             className="text-white/80 hover:text-cyber-light transition-colors bg-cyber-dark/50 p-2 rounded-full backdrop-blur-sm"
             aria-label="Email Contact"
           >

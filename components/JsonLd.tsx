@@ -3,13 +3,13 @@ export function JsonLd() {
     "@context": "https://schema.org",
     "@type": "Person",
     name: "Kee Hui",
-    url: "",
+    url: "kiwi-orpin.vercel.app",
     jobTitle: "Web Developer",
     description:
       "An aspiring Web Developer focused on creating secure and scalable web applications with cutting-edge technologies.",
     sameAs: [
-      "https://github.com/yourusername",
-      "https://linkedin.com/in/yourusername",
+      "https://github.com/kiwinoob",
+      "https://www.linkedin.com/in/kee-hui-lam/",
     ],
   };
 
