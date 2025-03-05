@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://github.com/kiwinoob">
-    <img alt="Kiwi Logo" src="/public/logo.png" width="60" />
+  
   </a>
 </p>
 <h1 align="center">
