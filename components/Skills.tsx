@@ -1,6 +1,8 @@
 "use client";
-import { motion } from "framer-motion";
+
+import { motion, useInView } from "framer-motion";
 import { Code2, Database, Languages } from "lucide-react";
+import { useRef } from "react";
 
 const skills = [
   {
@@ -30,44 +32,101 @@ const skills = [
 ];
 
 export default function Skills() {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(sectionRef, { once: true, amount: 0.2 });
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3,
+      },
+    },
+  };
+
+  const cardVariants = {
+    hidden: {
+      opacity: 0,
+      y: 40,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 15,
+        staggerChildren: 0.08,
+        delayChildren: 0.3,
+      },
+    },
+  };
+
+  const skillItemVariants = {
+    hidden: {
+      opacity: 0,
+      scale: 0.8,
+    },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        type: "spring",
+        stiffness: 120,
+        damping: 12,
+      },
+    },
+  };
+
   return (
     <div
       id="skills"
+      ref={sectionRef}
       className="min-h-screen py-16 sm:py-24 px-4 sm:px-8 xl:px-32 2xl:px-64 bg-gradient-to-b from-[#141414] to-cyber-dark"
     >
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0 }}
+        animate={isInView ? { opacity: 1 } : { opacity: 0 }}
         transition={{ duration: 0.5 }}
         className="max-w-7xl mx-auto w-full"
       >
         <div className="text-center mb-12 sm:mb-16">
-          <div className="w-16 h-1 bg-cyber-light mx-auto mb-6"></div>
+          <motion.div
+            className="w-16 h-1 bg-cyber-light mx-auto mb-6"
+            initial={{ scaleX: 0 }}
+            animate={isInView ? { scaleX: 1 } : { scaleX: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          ></motion.div>
           <motion.h2
             className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4"
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
           >
             Tech Stack
           </motion.h2>
           <motion.p
             className="text-white/60 text-base sm:text-lg"
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
           >
             Technologies I work with
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <motion.div
+          className="grid grid-cols-1 lg:grid-cols-3 gap-8"
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
           {skills.map((skillCategory, categoryIndex) => (
             <motion.div
               key={skillCategory.category}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: categoryIndex * 0.1 + 0.4 }}
+              variants={cardVariants}
               className="group relative"
             >
               <div
@@ -79,24 +138,47 @@ export default function Skills() {
 
                 <div className="relative">
                   <div className="flex items-center gap-3 mb-6">
-                    <div className="p-3 bg-cyber-light/10 rounded-lg text-cyber-light">
+                    <motion.div
+                      className="p-3 bg-cyber-light/10 rounded-lg text-cyber-light"
+                      initial={{ scale: 0.8, opacity: 0 }}
+                      animate={
+                        isInView
+                          ? { scale: 1, opacity: 1 }
+                          : { scale: 0.8, opacity: 0 }
+                      }
+                      transition={{
+                        duration: 0.5,
+                        delay: 0.2 + categoryIndex * 0.1,
+                        type: "spring",
+                        stiffness: 200,
+                      }}
+                    >
                       {skillCategory.icon}
-                    </div>
-                    <h3 className="text-2xl font-bold text-white">
+                    </motion.div>
+                    <motion.h3
+                      className="text-2xl font-bold text-white"
+                      initial={{ x: -20, opacity: 0 }}
+                      animate={
+                        isInView ? { x: 0, opacity: 1 } : { x: -20, opacity: 0 }
+                      }
+                      transition={{
+                        duration: 0.5,
+                        delay: 0.3 + categoryIndex * 0.1,
+                      }}
+                    >
                       {skillCategory.category}
-                    </h3>
+                    </motion.h3>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-3">
+                  <motion.div
+                    className="grid grid-cols-2 gap-3"
+                    variants={containerVariants}
+                  >
                     {skillCategory.items.map((skill, skillIndex) => (
                       <motion.div
                         key={skill}
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{
-                          duration: 0.3,
-                          delay: skillIndex * 0.1 + categoryIndex * 0.2,
-                        }}
+                        variants={skillItemVariants}
+                        custom={skillIndex}
                         className="group/item relative"
                       >
                         <div className="absolute inset-0 bg-gradient-to-r from-cyber-light/20 to-transparent opacity-0 group-hover/item:opacity-100 transition-opacity duration-300 rounded-lg" />
@@ -107,12 +189,12 @@ export default function Skills() {
                         </div>
                       </motion.div>
                     ))}
-                  </div>
+                  </motion.div>
                 </div>
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </motion.div>
     </div>
   );
