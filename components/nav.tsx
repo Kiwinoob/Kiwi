@@ -101,7 +101,7 @@ export function Nav() {
           </div>
           <div className="flex items-center">
             <a
-              href="/path-to-your-resume.pdf"
+              href="/Lam Kee Hui's Resume.pdf"
               download
               className="hidden sm:flex items-center gap-1 sm:gap-2 px-2 sm:px-4 py-1 sm:py-2 text-xs sm:text-sm font-medium text-cyber-light border border-cyber-light/50 rounded hover:bg-cyber-light/10 transition-colors"
             >
@@ -135,7 +135,7 @@ export function Nav() {
               </Link>
             ))}
             <a
-              href="public/Lam Kee Hui&apos;s Resume.pdf"
+              href="/Lam Kee Hui's Resume.pdf"
               download
               className="block py-2 text-cyber-light hover:text-cyber-light/80"
             >
