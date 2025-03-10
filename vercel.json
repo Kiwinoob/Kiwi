@@ -1,8 +1,12 @@
 {
   "crons": [
     {
-      "path": "/cron/ping-db",
+      "path": "/api/cron/ping-db",
       "schedule": "0 12 */5 * *"
     }
+  ],
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/(.*)", "status": 404, "dest": "/404" }
   ]
 }
