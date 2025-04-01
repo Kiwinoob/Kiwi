@@ -14,7 +14,10 @@ export default function Projects() {
     async function fetchProjects() {
       const { projects, error } = await getProjects();
       if (projects) {
-        setProjects(projects);
+        const sortedProjects = projects.sort(
+          (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+        ); // Sort by createdAt in descending order
+        setProjects(sortedProjects);
       }
     }
     fetchProjects();
