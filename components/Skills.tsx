@@ -84,7 +84,7 @@ export default function Skills() {
     <div
       id="skills"
       ref={sectionRef}
-      className="min-h-screen py-16 sm:py-24 px-4 sm:px-8 xl:px-32 2xl:px-64 bg-gradient-to-b from-[#141414] to-cyber-dark"
+      className="min-h-screen py-16 sm:py-24 px-4 sm:px-8 xl:px-32 2xl:px-64 bg-gradient-to-b from-[#141414]/80 to-cyber-dark/80 backdrop-blur-sm"
     >
       <motion.div
         initial={{ opacity: 0 }}
@@ -133,7 +133,7 @@ export default function Skills() {
                 className="absolute inset-0 bg-gradient-to-br from-cyber-light/30 via-cyber-light/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl blur-xl"
                 style={{ mixBlendMode: "color-dodge" }}
               />
-              <div className="relative bg-gradient-to-br from-[#1a1a1a] to-[#0f0f0f] rounded-xl p-6 h-full border border-white/10 backdrop-blur-3xl overflow-hidden">
+              <div className="relative bg-gradient-to-br from-[#1a1a1a]/90 to-[#0f0f0f]/90 rounded-xl p-6 h-full border border-white/10 backdrop-blur-3xl overflow-hidden content-card">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-cyber-light/5 rounded-full blur-3xl transform translate-x-16 -translate-y-16" />
 
                 <div className="relative">

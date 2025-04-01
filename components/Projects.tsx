@@ -3,6 +3,7 @@
 import { motion, useInView } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
 import { getProjects, type Project } from "@/lib/actions";
+import PolygonAccent from "./PolygonAccent";
 
 export default function Projects() {
   const [projects, setProjects] = useState<Project[]>([]);
@@ -52,6 +53,11 @@ export default function Projects() {
       ref={sectionRef}
       className="min-h-screen py-16 sm:py-24 px-4 sm:px-8 xl:px-32 2xl:px-64 bg-gradient-to-b from-cyber-dark to-[#141414]"
     >
+      {/* Decorative polygon accent */}
+      <div className="absolute bottom-10 left-10 w-48 h-48 opacity-20 z-0">
+        <PolygonAccent density="low" size="large" />
+      </div>
+
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}

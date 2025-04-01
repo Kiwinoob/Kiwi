@@ -87,3 +87,26 @@
   background-color: #00ff41;
   color: #0a0a0a;
 }
+
+/* Enhance text readability over the polygon background */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Add subtle glow to important elements */
+.cyber-glow {
+  box-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
+}
+
+/* Ensure content is readable over the background */
+.content-card {
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  background-color: rgba(10, 10, 10, 0.7);
+}

@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail } from "lucide-react";
 import GlowingSphere from "./GlowingSphere";
+import PolygonAccent from "./PolygonAccent";
 
 export default function About() {
   return (
@@ -13,6 +14,12 @@ export default function About() {
       <div className="absolute top-0 right-0 w-full md:w-2/3 lg:w-1/2 h-full z-0">
         <GlowingSphere />
       </div>
+
+      {/* Decorative polygon accent */}
+      <div className="absolute bottom-0 left-0 w-64 h-64 opacity-30 z-0">
+        <PolygonAccent density="high" size="large" />
+      </div>
+
       <motion.div
         className="max-w-7xl mx-auto w-full relative z-10"
         initial={{ opacity: 0, y: 20 }}
