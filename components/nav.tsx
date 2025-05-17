@@ -61,7 +61,7 @@ export function Nav() {
           <div className="flex items-center">
             <Link
               href="/"
-              className="text-cyber-light font-mono text-lg sm:text-xl mr-4 sm:mr-8"
+              className="text-cyber-light font-bold font-mono text-lg sm:text-xl mr-4 sm:mr-8"
             >
               Kiwi
             </Link>

@@ -22,7 +22,7 @@ const skills = [
   {
     category: "Frameworks",
     icon: <Code2 className="w-6 h-6" />,
-    items: ["Angular", "ASP.net", "Ionic", "React JS", "Next JS"],
+    items: ["Angular", "ASP.net", "Ionic", "React.js", "Next.js"],
   },
   {
     category: "Backend & Databases",
