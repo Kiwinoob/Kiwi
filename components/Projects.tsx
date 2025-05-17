@@ -15,7 +15,8 @@ export default function Projects() {
       const { projects, error } = await getProjects();
       if (projects) {
         const sortedProjects = projects.sort(
-          (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+          (a, b) =>
+            new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
         ); // Sort by createdAt in descending order
         setProjects(sortedProjects);
       }
@@ -112,11 +113,23 @@ export default function Projects() {
                 aria-label={`View ${project.title} on GitHub`}
               >
                 <div className="aspect-video relative overflow-hidden bg-black">
-                  <img
-                    src={project.image || "/placeholder.svg"}
-                    alt={project.title}
-                    className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity"
-                  />
+                  {project.image?.endsWith(".mp4") ? (
+                    <video
+                      src={project.image}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity"
+                    />
+                  ) : (
+                    <img
+                      src={project.image || "/placeholder.svg"}
+                      alt={project.title}
+                      className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity"
+                      loading="lazy"
+                    />
+                  )}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
                 <div className="p-4 sm:p-6">
