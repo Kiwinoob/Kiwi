@@ -3,7 +3,6 @@ import { Inter, JetBrains_Mono } from "next/font/google";
 import { Nav } from "@/components/nav";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
-import PolygonBackground from "@/components/PolygonBackground";
 import type React from "react";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -44,7 +43,6 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${jetbrainsMono.variable} font-sans bg-cyber-dark text-white min-h-screen`}
       >
-        <PolygonBackground />
         <Nav />
         <main className="pt-16 sm:pt-20 relative z-10">{children}</main>
         <ScrollToTop />

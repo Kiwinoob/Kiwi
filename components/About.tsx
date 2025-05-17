@@ -2,8 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail } from "lucide-react";
-import GlowingSphere from "./GlowingSphere";
-import PolygonAccent from "./PolygonAccent";
+import CyberCrystal from "./CyberCrystal";
 
 export default function About() {
   return (
@@ -12,12 +11,7 @@ export default function About() {
       className="min-h-screen flex items-center px-4 sm:px-8 xl:px-32 2xl:px-64 relative overflow-hidden"
     >
       <div className="absolute top-0 right-0 w-full md:w-2/3 lg:w-1/2 h-full z-0">
-        <GlowingSphere />
-      </div>
-
-      {/* Decorative polygon accent */}
-      <div className="absolute bottom-0 left-0 w-64 h-64 opacity-30 z-0">
-        <PolygonAccent density="high" size="large" />
+        <CyberCrystal />
       </div>
 
       <motion.div
@@ -54,7 +48,7 @@ export default function About() {
             href="https://github.com/kiwinoob"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-white/80 hover:text-cyber-light transition-colors bg-cyber-dark/50 p-2 rounded-full backdrop-blur-sm"
+            className="text-white/80 hover:text-cyber-light transition-colors bg-cyber-dark/70 p-2 rounded-full backdrop-blur-sm cyber-glow"
             aria-label="GitHub Profile"
           >
             <Github className="w-6 h-6 sm:w-8 sm:h-8" />
@@ -63,14 +57,14 @@ export default function About() {
             href="https://www.linkedin.com/in/kee-hui-lam/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-white/80 hover:text-cyber-light transition-colors bg-cyber-dark/50 p-2 rounded-full backdrop-blur-sm"
+            className="text-white/80 hover:text-cyber-light transition-colors bg-cyber-dark/70 p-2 rounded-full backdrop-blur-sm cyber-glow"
             aria-label="LinkedIn Profile"
           >
             <Linkedin className="w-6 h-6 sm:w-8 sm:h-8" />
           </a>
           <a
             href="mailto:kiwi1@live.com.sg"
-            className="text-white/80 hover:text-cyber-light transition-colors bg-cyber-dark/50 p-2 rounded-full backdrop-blur-sm"
+            className="text-white/80 hover:text-cyber-light transition-colors bg-cyber-dark/70 p-2 rounded-full backdrop-blur-sm cyber-glow"
             aria-label="Email Contact"
           >
             <Mail className="w-6 h-6 sm:w-8 sm:h-8" />
