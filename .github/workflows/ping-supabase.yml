@@ -1,0 +1,34 @@
+name: Ping Supabase DB
+
+on:
+  workflow_dispatch: # Allows you to manually trigger this workflow from the Actions tab
+  schedule:
+    # Runs every Monday and Thursday at 03:07 UTC (adjust time as needed).
+    # Supabase free tier projects are paused after 7 days of inactivity.
+    # Running this twice a week provides a good buffer to ensure it stays active.
+    - cron: "7 3 * * 1,4" # 1 for Monday, 4 for Thursday. 0=Sun, 6=Sat.
+
+jobs:
+  ping_db:
+    runs-on: ubuntu-latest # Use a standard GitHub-hosted runner
+
+    steps:
+      - name: Install PostgreSQL client
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y postgresql-client
+
+      - name: Ping Supabase PostgreSQL
+        env:
+          # Store your Supabase Database URL (the full PostgreSQL connection string)
+          # as a secret in your GitHub repository settings.
+          # Name it something like SUPABASE_PING_DATABASE_URL or similar.
+          SUPABASE_DATABASE_URL: ${{ secrets.SUPABASE_PING_DATABASE_URL }}
+        run: |
+          if [ -z "$SUPABASE_DATABASE_URL" ]; then
+            echo "::error::SUPABASE_PING_DATABASE_URL secret is not set."
+            exit 1
+          fi
+          # Execute a very simple, non-intrusive query
+          psql "$SUPABASE_DATABASE_URL" -c "SELECT 1;"
+          echo "Successfully pinged the Supabase database."
