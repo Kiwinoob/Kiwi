@@ -24,7 +24,7 @@ export const metadata = {
     site_name: "Kee Hui - Web Developer Portfolio",
     images: [
       {
-        url: "https://kiwi-orpin.vercel.app/og-image.jpg",
+        url: "https://kiwi-orpin.vercel.app/portfilo.png",
         width: 1200,
         height: 630,
         alt: "Kee Hui - Web Developer Portfolio",
@@ -42,6 +42,21 @@ export default function RootLayout({
     <html lang="en" className="dark">
 <head>
 <meta name="google-site-verification" content="JaVcWgV5MQJD3X-FwSxYA9XNbFcKVDe9r5LzxjhwFto" /> 
+  <meta name="description" content="Kee Hui is an aspiring Web Developer specializing in secure and scalable web applications using cutting-edge technologies." />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://kiwi-orpin.vercel.app/" />
+        <meta property="og:title" content="Kee Hui - Web Developer Portfolio" />
+        <meta property="og:description" content="Kee Hui is an aspiring Web Developer specializing in secure and scalable web applications using cutting-edge technologies." />
+        <meta property="og:image" content="https://kiwi-orpin.vercel.app/og-image.jpg" />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content="https://kiwi-orpin.vercel.app/" />
+        <meta name="twitter:title" content="Kee Hui - Web Developer Portfolio" />
+        <meta name="twitter:description" content="Kee Hui is an aspiring Web Developer specializing in secure and scalable web applications using cutting-edge technologies." />
+        <meta name="twitter:image" content="https://kiwi-orpin.vercel.app/og-image.jpg" />
 </head>
       <body
         className={`${inter.variable} ${jetbrainsMono.variable} font-sans bg-cyber-dark text-white min-h-screen`}
