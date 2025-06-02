@@ -35,6 +35,7 @@ export const metadata = {
       title: "Kee Hui - Web Developer Portfolio",
       description: "Kee Hui is an aspiring Web Developer...",
       images: ["https://kiwi-orpin.vercel.app/portfilo.png"],
+    }
     ],
   },
 };
