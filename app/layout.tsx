@@ -29,6 +29,7 @@ export const metadata = {
         width: 1200,
         height: 630,
         alt: "Kee Hui - Web Developer Portfolio",
+        type: "image/png",
       },
     ],
     twitter: {
@@ -36,6 +37,7 @@ export const metadata = {
       title: "Kee Hui - Web Developer Portfolio",
       description: "Kee Hui is an aspiring Web Developer...",
       images: ["https://kiwi-orpin.vercel.app/portfilo.png"],
+      creator: "@kiwi",
     },
   },
 };
