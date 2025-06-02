@@ -111,7 +111,7 @@ export default function Projects() {
                 className="block bg-[#1a1a1a] rounded-lg overflow-hidden border border-white/5 transition-all duration-300 hover:shadow-lg hover:shadow-cyber-light/20 hover:-translate-y-2"
                 aria-label={`View ${project.title} on GitHub`}
               >
-                 <div className="aspect-video relative overflow-hidden bg-black">Add commentMore actions
+                 <div className="aspect-video relative overflow-hidden bg-black">
                   {project.image?.endsWith(".mp4") ? (
                     <video
                       src={project.image}
