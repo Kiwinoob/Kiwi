@@ -22,6 +22,7 @@ export const metadata = {
     locale: "en_US",
     url: "https://kiwi-orpin.vercel.app/",
     site_name: "Kee Hui - Web Developer Portfolio",
+    description: "Kee Hui is an aspiring Web Developer...",
     images: [
       {
         url: "https://kiwi-orpin.vercel.app/portfilo.png",
@@ -29,6 +30,11 @@ export const metadata = {
         height: 630,
         alt: "Kee Hui - Web Developer Portfolio",
       },
+    twitter: {
+      card: "summary_large_image",
+      title: "Kee Hui - Web Developer Portfolio",
+      description: "Kee Hui is an aspiring Web Developer...",
+      images: ["https://kiwi-orpin.vercel.app/portfilo.png"],
     ],
   },
 };
