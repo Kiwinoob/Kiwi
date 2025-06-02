@@ -40,6 +40,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="dark">
+<head>
+<meta name="google-site-verification" content="JaVcWgV5MQJD3X-FwSxYA9XNbFcKVDe9r5LzxjhwFto" /> 
+</head>
       <body
         className={`${inter.variable} ${jetbrainsMono.variable} font-sans bg-cyber-dark text-white min-h-screen`}
       >
