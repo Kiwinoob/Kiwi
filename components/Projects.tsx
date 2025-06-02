@@ -111,12 +111,24 @@ export default function Projects() {
                 className="block bg-[#1a1a1a] rounded-lg overflow-hidden border border-white/5 transition-all duration-300 hover:shadow-lg hover:shadow-cyber-light/20 hover:-translate-y-2"
                 aria-label={`View ${project.title} on GitHub`}
               >
-                <div className="aspect-video relative overflow-hidden bg-black">
-                  <img
-                    src={project.image || "/placeholder.svg"}
-                    alt={project.title}
-                    className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity"
-                  />
+                 <div className="aspect-video relative overflow-hidden bg-black">Add commentMore actions
+                  {project.image?.endsWith(".mp4") ? (
+                    <video
+                      src={project.image}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity"
+                    />
+                  ) : (
+                    <img
+                      src={project.image || "/placeholder.svg"}
+                      alt={project.title}
+                      className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity"
+                      loading="lazy"
+                    />
+                  )}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
                 <div className="p-4 sm:p-6">
