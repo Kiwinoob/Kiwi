@@ -30,7 +30,7 @@ export const metadata = {
         height: 630,
         alt: "Kee Hui - Web Developer Portfolio",
       },
-    twitter: {
+   twitter: {
       card: "summary_large_image",
       title: "Kee Hui - Web Developer Portfolio",
       description: "Kee Hui is an aspiring Web Developer...",
