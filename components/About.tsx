@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail } from "lucide-react";
 import CyberCrystal from "./CyberCrystal";
+import { TypeAnimation } from "react-type-animation";
 
 export default function About() {
   return (
@@ -27,7 +28,22 @@ export default function About() {
           transition={{ duration: 0.5, delay: 0.2 }}
         >
           Hey there, I'm{" "}
-          <span className="text-cyber-light block mt-2">Kee Hui</span>
+          <span className="text-cyber-light block mt-2">
+            <TypeAnimation
+              sequence={[
+                "Kee Hui", // Type 'Kee Hui'
+                1000, // Wait 1s
+                "Web Developer", // Delete 'Kee Hui' and type 'Web Developer'
+                1000, // Wait 1s
+                "Kee Hui", // Delete 'Web Developer' and type 'Kee Hui'
+              ]}
+              wrapper="span"
+              cursor={true}
+              repeat={Infinity}
+              style={{ display: "inline-block" }}
+              className="text-cyber-light"
+            />
+          </span>
         </motion.h1>
         <motion.p
           className="text-lg sm:text-xl md:text-2xl text-white/80 max-w-2xl mb-8 sm:mb-12 bg-cyber-dark/50 p-4 rounded-lg backdrop-blur-sm"
