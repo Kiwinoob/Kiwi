@@ -135,7 +135,7 @@ export function Nav() {
               </Link>
             ))}
             <a
-              href="/Lam Kee Hui's Resume.pdf"
+              href="/Lam Kee Hui's CV.docx"
               download
               className="block py-2 text-cyber-light hover:text-cyber-light/80"
             >
