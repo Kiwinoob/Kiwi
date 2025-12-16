@@ -1,12 +1,10 @@
 generator client {
-  provider = "prisma-client-js"
-  previewFeatures = ["referentialIntegrity"]
+  provider = "prisma-client"
+  output   = "./generated/v7"
 }
 
 datasource db {
   provider = "postgresql"
-  url = env("DATABASE_URL")
-  directUrl = env("DIRECT_URL")
   relationMode = "prisma"
 }
 
