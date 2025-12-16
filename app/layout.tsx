@@ -33,6 +33,15 @@ export const metadata = {
     siteName: "Kee Hui Portfolio",
     description:
       "Kee Hui is an aspiring Web Developer focused on creating secure and scalable web applications with cutting-edge technologies.",
+    images: [
+      {
+        url: "https://keehui.vercel.app/keehui-og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Kee Hui Portfolio",
+        type: "image/png",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
