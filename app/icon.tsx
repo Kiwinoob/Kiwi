@@ -17,39 +17,41 @@ export default function Icon() {
     (
       <div
         style={{
-          background: "#0a0a0a",
+          background: "#050505", // hud-black
           width: "100%",
           height: "100%",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          borderRadius: "50%",
-          position: "relative",
+          borderRadius: "4px", // rounded-sm
         }}
       >
-        <div
-          style={{
-            position: "absolute",
-            width: "90%",
-            height: "90%",
-            border: "2px solid #00ff41",
-            borderRadius: "50%",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          <div
-            style={{
-              color: "#00ff41",
-              fontSize: "16px",
-              fontWeight: "bold",
-              fontFamily: "sans-serif",
-            }}
-          >
-            K
-          </div>
-        </div>
+          <path
+            d="M4 21V3"
+            stroke="#84cc16" // kiwi-500
+            strokeWidth="3"
+            strokeLinecap="square"
+          />
+          <path
+            d="M20 21L9 11.5"
+            stroke="#84cc16"
+            strokeWidth="3"
+            strokeLinecap="square"
+          />
+          <path
+            d="M20 3L9 13"
+            stroke="#84cc16"
+            strokeWidth="3"
+            strokeLinecap="square"
+          />
+        </svg>
       </div>
     ),
     {

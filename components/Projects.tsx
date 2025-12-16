@@ -1,164 +1,123 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
-import { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
+import { ArrowUpRight, Crosshair, Folder } from "lucide-react";
 import { getProjects, type Project } from "@/lib/actions";
-import PolygonAccent from "./PolygonAccent";
 
-export default function Projects() {
+const Projects: React.FC = () => {
   const [projects, setProjects] = useState<Project[]>([]);
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(sectionRef, { once: true, amount: 0.2 });
 
   useEffect(() => {
     async function fetchProjects() {
-      const { projects, error } = await getProjects();
+      const { projects } = await getProjects();
       if (projects) {
-        const sortedProjects = projects.sort(
-          (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
-        ); // Sort by createdAt in descending order
-        setProjects(sortedProjects);
+        setProjects(projects);
       }
     }
     fetchProjects();
   }, []);
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.3,
-      },
-    },
-  };
-
-  const cardVariants = {
-    hidden: {
-      opacity: 0,
-      y: 30,
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 15,
-      },
-    },
-  };
-
   return (
-    <div
-      id="projects"
-      ref={sectionRef}
-      className="min-h-screen py-16 sm:py-24 px-4 sm:px-8 xl:px-32 2xl:px-64 bg-gradient-to-b from-cyber-dark to-[#141414]"
-    >
-      {/* Decorative polygon accent */}
-      <div className="absolute bottom-10 left-10 w-48 h-48 opacity-20 z-0">
-        <PolygonAccent density="low" size="large" />
-      </div>
-
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-        transition={{ duration: 0.5 }}
-        className="max-w-7xl mx-auto w-full"
-      >
-        <div className="text-center mb-12 sm:mb-16">
-          <motion.div
-            className="w-16 h-1 bg-cyber-light mx-auto mb-6"
-            initial={{ scaleX: 0 }}
-            animate={isInView ? { scaleX: 1 } : { scaleX: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          ></motion.div>
-          <motion.h2
-            className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4"
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-          >
-            My Projects
-          </motion.h2>
-          <motion.p
-            className="text-white/60 text-base sm:text-lg"
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-          >
-            Projects made with passion.
-          </motion.p>
+    <section id="projects" className="py-24 relative bg-black">
+      <div className="max-w-7xl mx-auto px-6">
+        {/* Header */}
+        <div className="flex items-center justify-between mb-16 border-b border-white/10 pb-6">
+          <div className="flex items-center gap-4">
+            <div className="p-3 bg-hud-accent/10 text-hud-accent border border-hud-accent/30 rounded-sm">
+              <Folder size={24} />
+            </div>
+            <div>
+              <h2 className="text-3xl font-bold text-white uppercase tracking-wider">
+                Mission Log
+              </h2>
+              <p className="text-slate-500 font-mono text-xs">
+                SELECT MISSION TO INITIALIZE
+              </p>
+            </div>
+          </div>
+          <div className="hidden md:block font-mono text-xs text-kiwi-500">
+            {projects.length} RECORDS FOUND
+          </div>
         </div>
 
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
-          variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-        >
-          {projects.map((project) => (
-            <motion.div
+        {/* Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {projects.map((project, idx) => (
+            <a
               key={project.id}
-              variants={cardVariants}
-              className="group"
+              href={project.link}
+              className="group relative bg-hud-dark border border-white/10 hover:border-kiwi-500/50 transition-all duration-300 flex flex-col overflow-hidden"
             >
-              <a
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block bg-[#1a1a1a] rounded-lg overflow-hidden border border-white/5 transition-all duration-300 hover:shadow-lg hover:shadow-cyber-light/20 hover:-translate-y-2"
-                aria-label={`View ${project.title} on GitHub`}
-              >
-                 <div className="aspect-video relative overflow-hidden bg-black">
-                  {project.image?.endsWith(".mp4") ? (
-                    <video
-                      src={project.image}
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity"
-                    />
-                  ) : (
-                    <img
-                      src={project.image || "/placeholder.svg"}
-                      alt={project.title}
-                      className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity"
-                      loading="lazy"
-                    />
-                  )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              {/* Status Bar */}
+              <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-kiwi-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+
+              {/* Image Area (Cover Art) */}
+              <div className="relative aspect-[16/9] overflow-hidden">
+                <div className="absolute inset-0 bg-kiwi-900/20 mix-blend-overlay z-10" />
+                {project.image?.endsWith(".mp4") ? (
+                  <video
+                    src={project.image}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 filter grayscale group-hover:grayscale-0"
+                  />
+                ) : (
+                  <img
+                    src={project.image || "/placeholder.svg"}
+                    alt={project.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 filter grayscale group-hover:grayscale-0"
+                  />
+                )}
+                <div className="absolute bottom-2 right-2 bg-black/80 px-2 py-1 text-[10px] font-mono text-white border border-white/10 z-20">
+                  IMG_0{idx + 1}
                 </div>
-                <div className="p-4 sm:p-6">
-                  <div className="flex justify-between items-start mb-2 sm:mb-4">
-                    <h3 className="text-lg sm:text-xl font-semibold text-white group-hover:text-cyber-light transition-colors">
-                      {project.title}
-                    </h3>
-                    <span className="px-2 py-1 text-xs rounded-full bg-cyber-light/10 text-cyber-light border border-cyber-light/30">
-                      {project.status}
+              </div>
+
+              {/* Content */}
+              <div className="p-6 flex-1 flex flex-col">
+                <div className="flex justify-between items-start mb-4">
+                  <h3 className="text-xl font-bold text-white group-hover:text-kiwi-500 transition-colors uppercase">
+                    {project.title}
+                  </h3>
+                  <ArrowUpRight
+                    size={16}
+                    className="text-slate-500 group-hover:text-white transition-colors"
+                  />
+                </div>
+
+                <p className="text-slate-400 text-sm leading-relaxed mb-6 font-mono border-l-2 border-white/5 pl-3">
+                  {project.description}
+                </p>
+
+                <div className="mt-auto flex flex-wrap gap-2">
+                  {project.technologies.slice(0, 4).map((tag) => (
+                    <span
+                      key={tag}
+                      className="px-2 py-1 text-[10px] uppercase font-bold text-slate-300 bg-white/5 border border-white/5 group-hover:border-kiwi-500/20 transition-colors"
+                    >
+                      {tag}
                     </span>
-                  </div>
-                  <p className="text-white/60 text-sm mb-4 line-clamp-3">
-                    {project.description}
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {project.technologies.map((tech, index) => (
-                      <span
-                        key={index}
-                        className="text-xs bg-white/10 text-white/80 px-2 py-1 rounded"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
+                  ))}
+                  {project.technologies.length > 4 && (
+                    <span className="px-2 py-1 text-[10px] uppercase font-bold text-slate-500 bg-white/5 border border-white/5">
+                      +{project.technologies.length - 4}
+                    </span>
+                  )}
                 </div>
-              </a>
-            </motion.div>
+              </div>
+
+              {/* Hover Overlay Text */}
+              <div className="absolute inset-0 bg-black/80 flex items-center justify-center opacity-0 group-hover:opacity-0 pointer-events-none">
+                {/* Kept clear for now, allowing cover art to shine */}
+              </div>
+            </a>
           ))}
-        </motion.div>
-      </motion.div>
-    </div>
+        </div>
+      </div>
+    </section>
   );
-}
+};
+
+export default Projects;

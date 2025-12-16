@@ -1,6 +1,6 @@
 import "./globals.css";
-import { Inter, JetBrains_Mono } from "next/font/google";
-import { Nav } from "@/components/nav";
+import { Inter, JetBrains_Mono, Rajdhani } from "next/font/google";
+import Nav from "@/components/nav";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import type React from "react";
@@ -10,9 +10,18 @@ const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   variable: "--font-jetbrains-mono",
 });
+const rajdhani = Rajdhani({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-rajdhani",
+});
 
 export const metadata = {
-  title: "Kee Hui - Web Developer Portfolio",
+  metadataBase: new URL("https://keehui.vercel.app"),
+  alternates: {
+    canonical: "/",
+  },
+  title: "Kee Hui Portfolio",
   description:
     "Kee Hui is an aspiring Web Developer focused on creating secure and scalable web applications with cutting-edge technologies.",
   keywords:
@@ -20,35 +29,17 @@ export const metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://kiwi-orpin.vercel.app/",
-    site_name: "Kee Hui - Web Developer Portfolio",
+    url: "https://keehui.vercel.app/",
+    siteName: "Kee Hui Portfolio",
     description:
       "Kee Hui is an aspiring Web Developer focused on creating secure and scalable web applications with cutting-edge technologies.",
-    images: [
-      {
-        url: "https://kiwi-orpin.vercel.app/portfilo.png",
-        width: 1200,
-        height: 630,
-        alt: "Kee Hui - Web Developer Portfolio",
-        type: "image/png",
-      },
-    ],
-    twitter: {
-      card: "summary_large_image",
-      title: "Kee Hui - Web Developer Portfolio",
-      description:
-        "Kee Hui is an aspiring Web Developer focused on creating secure and scalable web applications with cutting-edge technologies.",
-      images: ["https://kiwi-orpin.vercel.app/portfilo.png"],
-      creator: "@kiwi",
-    },
   },
-  // Additional metadata for other platforms
-  other: {
-    "og:image": "https://kiwi-orpin.vercel.app/portfilo.png",
-    "og:image:width": "1200",
-    "og:image:height": "630",
-    "og:image:alt": "Kee Hui - Web Developer Portfolio",
-    "og:image:type": "image/png",
+  twitter: {
+    card: "summary_large_image",
+    title: "Kee Hui Portfolio",
+    description:
+      "Kee Hui is an aspiring Web Developer focused on creating secure and scalable web applications with cutting-edge technologies.",
+    creator: "@keehui",
   },
 };
 
@@ -58,40 +49,32 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" className="dark scroll-smooth">
       <head>
         <meta
           name="google-site-verification"
           content="JaVcWgV5MQJD3X-FwSxYA9XNbFcKVDe9r5LzxjhwFto"
         />
-        <meta
-          name="description"
-          content="Kee Hui is an aspiring Web Developer specializing in secure and scalable web applications using cutting-edge technologies."
-        />
-        {/* WhatsApp specific meta tags */}
-        <meta
-          property="og:image"
-          content="https://kiwi-orpin.vercel.app/portfilo.png"
-        />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta
-          property="og:image:alt"
-          content="Kee Hui - Web Developer Portfolio"
-        />
-        <meta property="og:title" content="Kee Hui - Web Developer Portfolio" />
-        <meta
-          property="og:description"
-          content="Kee Hui is an aspiring Web Developer focused on creating secure and scalable web applications with cutting-edge technologies."
-        />
-        {/* Discord specific meta tags */}
         <meta name="theme-color" content="#0f172a" />
       </head>
       <body
-        className={`${inter.variable} ${jetbrainsMono.variable} font-sans bg-cyber-dark text-white min-h-screen`}
+        className={`${inter.variable} ${jetbrainsMono.variable} ${rajdhani.variable} font-sans min-h-screen text-slate-300 selection:bg-kiwi-500 selection:text-black flex flex-col relative bg-hex-pattern bg-hud-black`}
       >
+        <div className="noise-layer"></div>
+
         <Nav />
-        <main className="pt-16 sm:pt-20 relative z-10">{children}</main>
+
+        <main className="flex-grow relative z-10 w-full">
+          {/* Decorative Grid Lines */}
+          <div className="fixed inset-0 pointer-events-none z-0 flex justify-between px-6 lg:px-12 opacity-10">
+            <div className="w-px h-full bg-white" />
+            <div className="w-px h-full bg-white hidden md:block" />
+            <div className="w-px h-full bg-white hidden lg:block" />
+            <div className="w-px h-full bg-white" />
+          </div>
+          {children}
+        </main>
+
         <ScrollToTop />
         <Footer />
       </body>
