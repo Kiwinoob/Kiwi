@@ -63,7 +63,7 @@ const Nav: React.FC = () => {
           {/* Right Side Actions */}
           <div className="flex items-center gap-2">
             <a
-              href="/resume.pdf"
+              href="/Lam Kee Hui's CV.docx"
               target="_blank"
               className="hidden sm:flex items-center gap-2 px-4 py-2 bg-kiwi-500 text-black text-xs font-bold uppercase tracking-wider hover:bg-kiwi-400 transition-colors rounded-sm clip-corner-sm group"
             >

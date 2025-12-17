@@ -11,7 +11,8 @@ async function main() {
       title: "Letmecooked",
       description:
         "An AI-powered study app using Next.js, TypeScript, and Gemini AI to generate summaries, quizzes, flashcards, and study plans from PDF files and YouTube transcripts.",
-      image: "",
+      image:
+        "https://napwpmlptnqgsqqyaiww.supabase.co/storage/v1/object/public/project-image/letmecooked.mp4",
       technologies: [
         "Next.js",
         "Firebase",
@@ -23,9 +24,10 @@ async function main() {
       status: "LATEST",
     },
     {
-      title: "Portfolio Website",
-      description: "A portfolio website built with Next.js, Prisma.",
-      image: "",
+      title: "Personal Portfolio Website",
+      description: "My portfolio website built with Next.js, Prisma.",
+      image:
+        "https://napwpmlptnqgsqqyaiww.supabase.co/storage/v1/object/public/project-image/portfilo.mp4",
       technologies: ["Next.js", "Prisma", "TailwindCSS"],
       link: "https://github.com/Kiwinoob/Kiwi",
       status: "COMPLETED",
@@ -34,7 +36,8 @@ async function main() {
       title: "Give4Need",
       description:
         "A donation platform for donating unwanted items to needy people.",
-      image: "",
+      image:
+        "https://napwpmlptnqgsqqyaiww.supabase.co/storage/v1/object/public/project-image//give4need.png",
       technologies: ["Next.js", "Firebase", "TailwindCSS"],
       link: "https://github.com/Kiwinoob/Give4Need",
       status: "COMPLETED",
@@ -42,10 +45,11 @@ async function main() {
     {
       title: "Belmacs Website Revamp",
       description: "Redesigned and developed Belmacs Pte Ltd's website.",
-      image: "",
+      image:
+        "https://napwpmlptnqgsqqyaiww.supabase.co/storage/v1/object/public/project-image//belmacs.mp4",
       technologies: ["React.js", "Firebase", "Google Analytics"],
       link: "https://www.belmacs.com.sg/",
-      status: "OPEN SOURCE",
+      status: "COMPLETED",
     },
   ];
 
