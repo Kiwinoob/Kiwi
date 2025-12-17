@@ -87,7 +87,7 @@ const Nav: React.FC = () => {
 
       {/* Mobile Menu Overlay */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-[60] bg-hud-black/95 backdrop-blur-xl flex flex-col items-center justify-center">
+        <div className="fixed inset-0 z-[60] bg-hud-black/95 backdrop-blur-xl flex flex-col items-center justify-center p-8">
           <button
             onClick={() => setMobileMenuOpen(false)}
             className="absolute top-8 right-8 text-slate-400 hover:text-white p-2"
@@ -95,23 +95,68 @@ const Nav: React.FC = () => {
             <X size={32} />
           </button>
 
-          <div className="flex flex-col gap-6 text-center">
-            {["About", "Projects", "Skills"].map((item) => (
-              <a
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                onClick={() => setMobileMenuOpen(false)}
-                className="text-3xl font-bold uppercase text-white hover:text-kiwi-500 transition-colors flex items-center justify-center gap-2 group"
-              >
-                <ChevronRight className="opacity-0 group-hover:opacity-100 -ml-8 transition-opacity text-kiwi-500" />
-                {item}
-              </a>
-            ))}
+          <div className="flex flex-col items-center gap-8 w-full max-w-sm">
+            {/* Brand in Mobile Menu */}
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-10 h-10 bg-kiwi-500/10 border border-kiwi-500 text-kiwi-500 flex items-center justify-center rounded-sm">
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M4 21V3"
+                    stroke="currentColor"
+                    strokeWidth="3"
+                    strokeLinecap="square"
+                  />
+                  <path
+                    d="M20 21L9 11.5"
+                    stroke="currentColor"
+                    strokeWidth="3"
+                    strokeLinecap="square"
+                  />
+                  <path
+                    d="M20 3L9 13"
+                    stroke="currentColor"
+                    strokeWidth="3"
+                    strokeLinecap="square"
+                  />
+                </svg>
+              </div>
+              <span className="font-bold text-white tracking-widest text-lg">
+                Kee Hui <span className="text-slate-600">v2.4</span>
+              </span>
+            </div>
+
+            {/* Navigation Links */}
+            <div className="flex flex-col gap-1 bg-white/5 rounded-md p-1 border border-white/5 w-full">
+              {["About", "Projects", "Skills"].map((item) => (
+                <a
+                  key={item}
+                  href={`#${item.toLowerCase()}`}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="px-6 py-3 text-sm font-bold uppercase tracking-wider text-slate-400 hover:text-white hover:bg-white/10 rounded-sm transition-all text-center"
+                >
+                  {item}
+                </a>
+              ))}
+            </div>
+
+            {/* Resume Button */}
             <a
-              href="/resume.pdf"
-              className="mt-8 px-8 py-3 bg-kiwi-500 text-black font-bold uppercase tracking-wider clip-corner"
+              href="/Lam Kee Hui's CV.docx"
+              target="_blank"
+              onClick={() => setMobileMenuOpen(false)}
+              className="flex items-center justify-center gap-2 px-6 py-3 bg-kiwi-500 text-black text-sm font-bold uppercase tracking-wider hover:bg-kiwi-400 transition-colors rounded-sm w-full group"
             >
-              Download Data
+              <span>Resume</span>
+              <Download
+                size={16}
+                className="group-hover:translate-y-0.5 transition-transform"
+              />
             </a>
           </div>
         </div>
