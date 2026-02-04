@@ -26,7 +26,7 @@ export async function GET() {
         message: "Failed to ping database",
         error: error instanceof Error ? error.message : "Unknown error",
       },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
